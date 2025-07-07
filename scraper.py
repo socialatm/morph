@@ -176,48 +176,9 @@ def suba_delta(df):
         return df["SUBA_y"] - df["SUBA_x"]
 
 
-def merge_data(df):
-    
-    # We're always asking for json because it's the easiest to deal with
-    morph_api_url = "https://api.morph.io/jasonchanhku/ufc_fighters_db/data.json"
-
-    # Keep this key secret using morph secret variables
-    morph_api_key = os.environ['MORPH_API_KEY']
-
-    r = requests.get(morph_api_url, params={
-      'key': morph_api_key,
-      'query': "select * from data"
-    })
-
-    j = r.json()
-    
-    # fighters db dataset to me merged
-    fighters_db = pd.DataFrame.from_dict(j)
-    
-    test = pd.merge(df, fighters_db, left_on=["Fighter1"], right_on=["NAME"])
-    test2 = pd.merge(test, fighters_db, left_on=["Fighter2"], right_on=["NAME"])
-    
-    test2["Odds_delta"] = test2.apply(odds_delta, axis=1)
-    test2["REACH_delta"] = test2.apply(reach_delta, axis=1)
-    test2["SLPM_delta"] = test2.apply(slpm_delta, axis=1)
-    test2["SAPM_delta"] = test2.apply(sapm_delta, axis=1)
-    test2["STRA_delta"] = test2.apply(stra_delta, axis=1)
-    test2["STRD_delta"] = test2.apply(strd_delta, axis=1)
-    test2["TD_delta"] = test2.apply(td_delta, axis=1)
-    test2["TDA_delta"] = test2.apply(tda_delta, axis=1)
-    test2["TDD_delta"] = test2.apply(tdd_delta, axis=1)
-    test2["SUBA_delta"] = test2.apply(suba_delta, axis=1)
-    
-    final_df = test2[['Events', 'Location', 'Fighter1', 'Fighter2', 'Favourite', 'Label', 'REACH_delta', 'SLPM_delta', 'SAPM_delta', 'STRA_delta', 'STRD_delta', 'TD_delta', 'TDA_delta', 'TDD_delta', 'SUBA_delta', 'Odds_delta']]
-    
-    return final_df
-
 scrape_data()
 df = create_df()
 df = preprocessing(df)
-df = merge_data(df)
 
-conn = sqlite3.connect('data.sqlite')
-df.to_sql('data', conn, if_exists='replace')
-print('Fights Merged Db successfully constructed and saved')
-conn.close()
+# save df to a csv file named odds_data.csv
+df.to_csv('odds_data.csv', index=False)
