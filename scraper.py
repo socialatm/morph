@@ -15,6 +15,30 @@ f2_odds = []
 label = []
 favorite = []
 
+def convert_decimal_to_american(decimal_odds: float) -> int:
+    """
+    Converts decimal (digital) odds to American odds.
+
+    Args:
+        decimal_odds: The decimal odds, which must be greater than 1.0.
+
+    Returns:
+        The equivalent American odds as an integer.
+        Returns None if the input is invalid.
+    """
+    if not isinstance(decimal_odds, (int, float)) or decimal_odds <= 1.0:
+        print("Error: Invalid decimal odds. Must be a number greater than 1.0.")
+        return None
+
+    if decimal_odds >= 2.0:
+        # This is an underdog or even money bet.
+        american_odds = (decimal_odds - 1) * 100
+    else:
+        # This is a favorite.
+        american_odds = -100 / (decimal_odds - 1)
+
+    return int(round(american_odds))
+
 def scrape_data():
     # set up page to extract table
     data = requests.get("http://www.betmma.tips/mma_betting_favorites_vs_underdogs.php?Org=1")
