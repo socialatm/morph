@@ -97,9 +97,26 @@ def scrape_data():
             else:
                 location.append(None)
                 date.append(None)
-            # odds
-            odds_f1 = convert_decimal_to_american(float(odds[2].text.strip(" @")))
-            odds_f2 = convert_decimal_to_american(float(odds[3].text.strip(" @")))
+            
+            # Convert and validate odds
+            try:
+                dec_odds1 = float(odds[2].text.strip(" @"))
+                dec_odds2 = float(odds[3].text.strip(" @"))
+            except ValueError:
+                # If odds text cannot be converted to a float, skip this row.
+                continue
+
+            # As per your request, skip if the decimal odds are infinite.
+            if dec_odds1 == float('inf') or dec_odds2 == float('inf'):
+                continue
+
+            odds_f1 = convert_decimal_to_american(dec_odds1)
+            odds_f2 = convert_decimal_to_american(dec_odds2)
+
+            # Skip if odds are invalid (e.g., <= 1.0), which results in None. This prevents errors later.
+            if odds_f1 is None or odds_f2 is None:
+                continue
+
             f1_odds.append(odds_f1)
             f2_odds.append(odds_f2)
 
