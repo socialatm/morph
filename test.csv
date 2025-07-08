@@ -1,25 +1,25 @@
-Events,Location,R_fighter,B_fighter,Winner,R_odds,B_odds,Favorite,Who_won
-UFC 251,Yas Island; 11th Jul 2020,Kamaru Usman,Jorge Masvidal,Kamaru Usman,-208,231,Kamaru Usman,favorite
-UFC 251,Yas Island; 11th Jul 2020,Alex Volkanovski,Max Holloway,Alex Volkanovski,-200,194,Alex Volkanovski,favorite
-UFC 251,Yas Island; 11th Jul 2020,Petr Yan,Jose Aldo,Petr Yan,-204,200,Petr Yan,favorite
-UFC 251,Yas Island; 11th Jul 2020,Rose Namajunas,Jessica Andrade,Rose Namajunas,-189,186,Rose Namajunas,favorite
-UFC 251,Yas Island; 11th Jul 2020,Paige VanZant,Amanda Ribas,Amanda Ribas,675,-588,Amanda Ribas,favorite
-UFC 251,Yas Island; 11th Jul 2020,Volkan Oezdemir,Jiri Prochazka,Jiri Prochazka,-147,135,Volkan Oezdemir,underdog
-UFC 251,Yas Island; 11th Jul 2020,Elizeu Zaleski dos Santos,Muslim Salikhov,Muslim Salikhov,118,-123,Muslim Salikhov,favorite
-UFC 251,Yas Island; 11th Jul 2020,Danny Henry,Makwan Amirkhani,Makwan Amirkhani,180,-189,Makwan Amirkhani,favorite
-UFC 251,Yas Island; 11th Jul 2020,Leonardo Santos,Roman Bogatov,Leonardo Santos,-167,160,Leonardo Santos,favorite
-UFC 251,Yas Island; 11th Jul 2020,Marcin Tybura,Maxim Grishin,Marcin Tybura,-105,-102,Marcin Tybura,favorite
-UFC 251,Yas Island; 11th Jul 2020,Raulian Paiva,Zhalgas Zhumagulov,Raulian Paiva,-167,153,Raulian Paiva,favorite
-UFC 251,Yas Island; 11th Jul 2020,Vanessa Melo,Karol Rosa,Karol Rosa,211,-227,Karol Rosa,favorite
-UFC 251,Yas Island; 11th Jul 2020,Martin Day,Davey Grant,Davey Grant,-156,160,Martin Day,underdog
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Calvin Kattar,Dan Ige,Calvin Kattar,-263,250,Calvin Kattar,favorite
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Tim Elliott,Ryan Benoit,Tim Elliott,-125,125,Tim Elliott,favorite
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Jimmie Rivera,Cody Stamann,Jimmie Rivera,-125,120,Jimmie Rivera,favorite
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Molly McCann,Taila Santos,Taila Santos,-143,133,Molly McCann,underdog
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Abdul Razak Alhassan,Mounir Lazzez,Mounir Lazzez,-312,285,Abdul Razak Alhassan,underdog
-UFC Fight Island 1,Yas Island; 15th Jul 2020,John Phillips,Khamzat Chimaev,Khamzat Chimaev,309,-345,Khamzat Chimaev,favorite
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Ricardo Ramos,Lerone Murphy,Lerone Murphy,-149,147,Ricardo Ramos,underdog
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Modestas Bukauskas,Andreas Michailidis,Modestas Bukauskas,-164,155,Modestas Bukauskas,favorite
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Jared Gordon,Chris Fishgold,Jared Gordon,-141,135,Jared Gordon,favorite
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Liana Jojua,Diana Belbita,Liana Jojua,165,-175,Diana Belbita,underdog
-UFC Fight Island 1,Yas Island; 15th Jul 2020,Jack Shore,Aaron Phillips,Jack Shore,-714,580,Jack Shore,favorite
+Events,Location,Date,R_fighter,B_fighter,Winner,R_odds,B_odds,Favorite,Who_won
+UFC 251,Yas Island,11th Jul 2020,Kamaru Usman,Jorge Masvidal,Kamaru Usman,-208,231,Kamaru Usman,favorite
+UFC 251,Yas Island,11th Jul 2020,Alex Volkanovski,Max Holloway,Alex Volkanovski,-200,194,Alex Volkanovski,favorite
+UFC 251,Yas Island,11th Jul 2020,Petr Yan,Jose Aldo,Petr Yan,-204,200,Petr Yan,favorite
+UFC 251,Yas Island,11th Jul 2020,Rose Namajunas,Jessica Andrade,Rose Namajunas,-189,186,Rose Namajunas,favorite
+UFC 251,Yas Island,11th Jul 2020,Paige VanZant,Amanda Ribas,Amanda Ribas,675,-588,Amanda Ribas,favorite
+UFC 251,Yas Island,11th Jul 2020,Volkan Oezdemir,Jiri Prochazka,Jiri Prochazka,-147,135,Volkan Oezdemir,underdog
+UFC 251,Yas Island,11th Jul 2020,Elizeu Zaleski dos Santos,Muslim Salikhov,Muslim Salikhov,118,-123,Muslim Salikhov,favorite
+UFC 251,Yas Island,11th Jul 2020,Danny Henry,Makwan Amirkhani,Makwan Amirkhani,180,-189,Makwan Amirkhani,favorite
+UFC 251,Yas Island,11th Jul 2020,Leonardo Santos,Roman Bogatov,Leonardo Santos,-167,160,Leonardo Santos,favorite
+UFC 251,Yas Island,11th Jul 2020,Marcin Tybura,Maxim Grishin,Marcin Tybura,-105,-102,Marcin Tybura,favorite
+UFC 251,Yas Island,11th Jul 2020,Raulian Paiva,Zhalgas Zhumagulov,Raulian Paiva,-167,153,Raulian Paiva,favorite
+UFC 251,Yas Island,11th Jul 2020,Vanessa Melo,Karol Rosa,Karol Rosa,211,-227,Karol Rosa,favorite
+UFC 251,Yas Island,11th Jul 2020,Martin Day,Davey Grant,Davey Grant,-156,160,Martin Day,underdog
+UFC Fight Island 1,Yas Island,15th Jul 2020,Calvin Kattar,Dan Ige,Calvin Kattar,-263,250,Calvin Kattar,favorite
+UFC Fight Island 1,Yas Island,15th Jul 2020,Tim Elliott,Ryan Benoit,Tim Elliott,-125,125,Tim Elliott,favorite
+UFC Fight Island 1,Yas Island,15th Jul 2020,Jimmie Rivera,Cody Stamann,Jimmie Rivera,-125,120,Jimmie Rivera,favorite
+UFC Fight Island 1,Yas Island,15th Jul 2020,Molly McCann,Taila Santos,Taila Santos,-143,133,Molly McCann,underdog
+UFC Fight Island 1,Yas Island,15th Jul 2020,Abdul Razak Alhassan,Mounir Lazzez,Mounir Lazzez,-312,285,Abdul Razak Alhassan,underdog
+UFC Fight Island 1,Yas Island,15th Jul 2020,John Phillips,Khamzat Chimaev,Khamzat Chimaev,309,-345,Khamzat Chimaev,favorite
+UFC Fight Island 1,Yas Island,15th Jul 2020,Ricardo Ramos,Lerone Murphy,Lerone Murphy,-149,147,Ricardo Ramos,underdog
+UFC Fight Island 1,Yas Island,15th Jul 2020,Modestas Bukauskas,Andreas Michailidis,Modestas Bukauskas,-164,155,Modestas Bukauskas,favorite
+UFC Fight Island 1,Yas Island,15th Jul 2020,Jared Gordon,Chris Fishgold,Jared Gordon,-141,135,Jared Gordon,favorite
+UFC Fight Island 1,Yas Island,15th Jul 2020,Liana Jojua,Diana Belbita,Liana Jojua,165,-175,Diana Belbita,underdog
+UFC Fight Island 1,Yas Island,15th Jul 2020,Jack Shore,Aaron Phillips,Jack Shore,-714,580,Jack Shore,favorite

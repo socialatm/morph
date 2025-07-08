@@ -6,6 +6,7 @@ import time
 
 all_links = []
 location = []
+date = []
 events = []
 f1 = []
 f2 = []
@@ -73,15 +74,26 @@ def scrape_data():
 
             # event name
             h1 = soup.find("h1")
+            events.append(h1.text)
+
             # location and date
             h2 = soup.find("h2")
-            
-            events.append(h1.text)
-            location.append(h2.text)
-
+            if h2 and h2.text:
+                # The h2 text is usually in the format "Location; Date"
+                parts = h2.text.split(';', 1)
+                if len(parts) == 2:
+                    location.append(parts[0].strip())
+                    date.append(parts[1].strip())
+                else:
+                    # If there's no ';', assume the whole text is the location
+                    location.append(parts[0].strip())
+                    date.append(None) # No date found
+            else:
+                location.append(None)
+                date.append(None)
+            # odds
             odds_f1 = convert_decimal_to_american(float(odds[2].text.strip(" @")))
             odds_f2 = convert_decimal_to_american(float(odds[3].text.strip(" @")))
-
             f1_odds.append(odds_f1)
             f2_odds.append(odds_f2)
 
@@ -100,10 +112,11 @@ def scrape_data():
             f2.append(fighters[1].text)
             winner.append(fighters[2].text)
 
-            if odds_f1 > odds_f2:
-                favorite.append(fighters[1].text)
-            else:
+            # The fighter with the lower American odds value is the favorite
+            if odds_f1 < odds_f2:
                 favorite.append(fighters[0].text)
+            else:
+                favorite.append(fighters[1].text)
     return None
 
 def create_df():
@@ -112,6 +125,7 @@ def create_df():
     df = pd.DataFrame()
     df["Events"] = events
     df["Location"] = location
+    df["Date"] = date
     df["R_fighter"] = f1
     df["B_fighter"] = f2
     df["Winner"] = winner
