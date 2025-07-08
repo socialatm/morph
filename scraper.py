@@ -31,6 +31,7 @@ def scrape_data():
 
     # test for one use case
     for link in all_links:
+    # for link in all_links[:5]:    # use for testing
         print(f"Now scraping: {link}")
 
         data = requests.get(link)
