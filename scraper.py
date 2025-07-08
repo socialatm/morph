@@ -1,13 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import numpy as np
-import string
 import re
-import datetime
-import sqlite3
 import time
-import os
 
 all_links = []
 location = []
