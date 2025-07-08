@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import re
 import time
+import dateutil
 
 all_links = []
 location = []
@@ -83,7 +84,12 @@ def scrape_data():
                 parts = h2.text.split(';', 1)
                 if len(parts) == 2:
                     location.append(parts[0].strip())
-                    date.append(parts[1].strip())
+                    try:
+                        # Parse the date string and format it to YYYY-MM-DD
+                        parsed_date = dateutil.parser.parse(parts[1].strip())
+                        date.append(parsed_date.strftime('%Y-%m-%d'))
+                    except (dateutil.parser.ParserError, TypeError):
+                        date.append(None) # Append None if date parsing fails
                 else:
                     # If there's no ';', assume the whole text is the location
                     location.append(parts[0].strip())
