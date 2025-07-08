@@ -4,6 +4,7 @@ import pandas as pd
 import re
 import time
 import dateutil
+import os
 
 def convert_decimal_to_american(decimal_odds: float) -> int:
     """
@@ -27,19 +28,25 @@ def convert_decimal_to_american(decimal_odds: float) -> int:
 
     return int(round(american_odds))
 
-def run_scraper() -> pd.DataFrame:
+def run_scraper(existing_events: set) -> pd.DataFrame:
     """
     Orchestrates the entire scraping process.
     1. Fetches the main page to get all fight card links.
-    2. Scrapes each individual fight card page.
-    3. Collects the data and returns it as a pandas DataFrame.
+    2. Scrapes each individual fight card page for events not already scraped.
+    3. Collects the new data and returns it as a pandas DataFrame.
     """
     # A list to hold a dictionary for each valid fight record
     all_fight_records = []
     base_url = "http://www.betmma.tips/"
 
     # 1. Get all fight page links
-    data = requests.get("http://www.betmma.tips/mma_betting_favorites_vs_underdogs.php?Org=1")
+    try:
+        data = requests.get("http://www.betmma.tips/mma_betting_favorites_vs_underdogs.php?Org=1")
+        data.raise_for_status() # Raise an exception for bad status codes
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching main page: {e}")
+        return pd.DataFrame() # Return empty DataFrame on failure
+    
     soup = BeautifulSoup(data.text, "html.parser")
 
     # table with 98% width 
@@ -47,14 +54,21 @@ def run_scraper() -> pd.DataFrame:
     # find all links in that table
     links = table.find_all('a', href=True)
 
-    # append all links to a list 
+    # Create a list of (event_name, url) tuples, skipping existing ones
     all_links = []
     for link in links:
-        all_links.append(base_url + link.get('href'))
+        event_name_from_link = link.text.strip()
+        if event_name_from_link in existing_events:
+            continue # Skip this event as it's already been scraped
+        all_links.append((event_name_from_link, base_url + link.get('href')))
 
+    if not all_links:
+        return pd.DataFrame()
+
+    print(f"Found {len(all_links)} new events to scrape.")
     # 2. Scrape each page and collect fight records
-    for link in all_links:
-        print(f"Now scraping: {link}")
+    for event_name_from_link, link in all_links:
+        print(f"Now scraping: {event_name_from_link}")
 
         data = requests.get(link)
         soup = BeautifulSoup(data.text, 'html.parser')
@@ -62,7 +76,7 @@ def run_scraper() -> pd.DataFrame:
 
         # --- Fetch page-level data ONCE per page for efficiency ---
         h1 = soup.find("h1")
-        event_name = h1.text if h1 else "Unknown Event"
+        event_name = h1.text.strip() if h1 else event_name_from_link
 
         h2 = soup.find("h2")
         loc, dt = None, None
@@ -127,15 +141,33 @@ def run_scraper() -> pd.DataFrame:
     return pd.DataFrame(all_fight_records)
 
 if __name__ == "__main__":
-    df = run_scraper()
-    if not df.empty:
-        print(f"\nSuccessfully scraped {df.shape[0]} fights.")
-        print(f"Last fight card was: {df.iloc[-1]['Events']} in {df.iloc[-1]['Location']}")
-        print("\nWin breakdown:")
-        print(df["Who_won"].value_counts(normalize=True))
-        
-        # Save df to a csv file
-        df.to_csv('odds_data.csv', index=False)
-        print("\nData saved to odds_data.csv")
+    CSV_FILE = 'odds_data.csv'
+    existing_events = set()
+    existing_df = pd.DataFrame()
+
+    # Check if the file exists and load existing data
+    if os.path.exists(CSV_FILE):
+        print(f"Found existing data in {CSV_FILE}. Reading...")
+        try:
+            existing_df = pd.read_csv(CSV_FILE)
+            if not existing_df.empty:
+                existing_events = set(existing_df['Events'].unique())
+                print(f"Loaded {len(existing_events)} unique events. Will skip them if found.")
+        except (pd.errors.EmptyDataError, KeyError) as e:
+            print(f"Warning: {CSV_FILE} is empty or malformed ({e}). Starting fresh.")
+            existing_df = pd.DataFrame()
     else:
-        print("Scraping complete, but no data was found.")
+        print(f"{CSV_FILE} not found. Starting a new scrape.")
+
+    # Run the scraper, passing the set of events to skip
+    new_df = run_scraper(existing_events)
+
+    if not new_df.empty:
+        print(f"\nSuccessfully scraped {new_df.shape[0]} new fights from {len(new_df['Events'].unique())} new events.")
+        combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+        print(f"Total fights in dataset: {combined_df.shape[0]}")
+
+        combined_df.to_csv(CSV_FILE, index=False)
+        print(f"\nData updated and saved to {CSV_FILE}")
+    else:
+        print("\nScraping complete. No new events found to add.")
