@@ -95,28 +95,28 @@ def scrape_data():
             else:
                 label.append("Favorite")
 
-            if odds_f1 > odds_f2:
-                favorite.append("f2")
-            else:
-                favorite.append("f1")
-
             fighters = row.find_all('a', attrs={'href': re.compile("^fighter_profile.php")})
             f1.append(fighters[0].text)
             f2.append(fighters[1].text)
             winner.append(fighters[2].text)
+
+            if odds_f1 > odds_f2:
+                favorite.append(fighters[1].text)
+            else:
+                favorite.append(fighters[0].text)
     return None
 
 def create_df():
     
-    # creating dataframe
+    # creating the dataframe
     df = pd.DataFrame()
     df["Events"] = events
     df["Location"] = location
-    df["Fighter1"] = f1
-    df["Fighter2"] = f2
+    df["R_fighter"] = f1
+    df["B_fighter"] = f2
     df["Winner"] = winner
-    df["fighter1_odds"] = f1_odds
-    df["fighter2_odds"] = f2_odds
+    df["R_odds"] = f1_odds
+    df["B_odds"] = f2_odds
     df["Favorite"] = favorite
     df["Label"] = label
     print(f"Successfully scraped {df.shape[0]} fights and last fight card was {df.iloc[-1, :]['Events']} {df.iloc[-1, :]['Location']}")
