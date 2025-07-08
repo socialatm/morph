@@ -1,0 +1,59 @@
+Events,Location,Fighter1,Fighter2,Winner,fighter1_odds,fighter2_odds,Favorite,Label
+UFC 251,Yas Island; 11th Jul 2020,Kamaru Usman,Jorge Masvidal,Kamaru Usman,-208,231,f1,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Alex Volkanovski,Max Holloway,Alex Volkanovski,-200,194,f1,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Petr Yan,Jose Aldo,Petr Yan,-204,200,f1,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Rose Namajunas,Jessica Andrade,Rose Namajunas,-189,186,f1,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Paige VanZant,Amanda Ribas,Amanda Ribas,675,-588,f2,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Volkan Oezdemir,Jiri Prochazka,Jiri Prochazka,-147,135,f1,Underdog
+UFC 251,Yas Island; 11th Jul 2020,Elizeu Zaleski dos Santos,Muslim Salikhov,Muslim Salikhov,118,-123,f2,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Danny Henry,Makwan Amirkhani,Makwan Amirkhani,180,-189,f2,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Leonardo Santos,Roman Bogatov,Leonardo Santos,-167,160,f1,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Marcin Tybura,Maxim Grishin,Marcin Tybura,-105,-102,f1,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Raulian Paiva,Zhalgas Zhumagulov,Raulian Paiva,-167,153,f1,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Vanessa Melo,Karol Rosa,Karol Rosa,211,-227,f2,Favorite
+UFC 251,Yas Island; 11th Jul 2020,Martin Day,Davey Grant,Davey Grant,-156,160,f1,Underdog
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Calvin Kattar,Dan Ige,Calvin Kattar,-263,250,f1,Favorite
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Tim Elliott,Ryan Benoit,Tim Elliott,-125,125,f1,Favorite
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Jimmie Rivera,Cody Stamann,Jimmie Rivera,-125,120,f1,Favorite
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Molly McCann,Taila Santos,Taila Santos,-143,133,f1,Underdog
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Abdul Razak Alhassan,Mounir Lazzez,Mounir Lazzez,-312,285,f1,Underdog
+UFC Fight Island 1,Yas Island; 15th Jul 2020,John Phillips,Khamzat Chimaev,Khamzat Chimaev,309,-345,f2,Favorite
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Ricardo Ramos,Lerone Murphy,Lerone Murphy,-149,147,f1,Underdog
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Modestas Bukauskas,Andreas Michailidis,Modestas Bukauskas,-164,155,f1,Favorite
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Jared Gordon,Chris Fishgold,Jared Gordon,-141,135,f1,Favorite
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Liana Jojua,Diana Belbita,Liana Jojua,165,-175,f2,Underdog
+UFC Fight Island 1,Yas Island; 15th Jul 2020,Jack Shore,Aaron Phillips,Jack Shore,-714,580,f1,Favorite
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Deiveson Figueiredo,Joseph Benavidez,Deiveson Figueiredo,-227,205,f1,Favorite
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Jack Hermansson,Kelvin Gastelum,Jack Hermansson,-102,100,f1,Favorite
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Marc Diakiese,Rafael Fiziev,Rafael Fiziev,-175,186,f1,Underdog
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Ariane da Silva,Luana Carolina,Ariane da Silva,-111,115,f1,Favorite
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Alexandre Pantoja,Askar Askarov,Askar Askarov,-175,180,f1,Underdog
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Khadis Ibragimov,Roman Dolidze,Roman Dolidze,145,-147,f2,Favorite
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Grant Dawson,Nad Narimani,Grant Dawson,-278,263,f1,Favorite
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Joseph Duffy,Joel Alvarez,Joel Alvarez,-238,230,f1,Underdog
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Brett Johns,Montel Jackson,Brett Johns,241,-250,f2,Underdog
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Amir Albazi,Malcolm Gordon,Amir Albazi,-132,134,f1,Favorite
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Davi Ramos,Arman Tsarukyan,Arman Tsarukyan,226,-222,f2,Favorite
+UFC Fight Island 2,Yas Island; 18th Jul 2020,Carlos Felipe,Sergey Spivak,Sergey Spivak,175,-175,f2,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Robert Whittaker,Darren Till,Robert Whittaker,-127,115,f1,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Mauricio Rua,Rogerio Nogueira,Mauricio Rua,-179,170,f1,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Alexander Gustafsson,Fabricio Werdum,Fabricio Werdum,-333,294,f1,Underdog
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Marina Alcalde Rodriguez,Carla Esparza,Carla Esparza,-169,158,f1,Underdog
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Paul Craig,Gadzhimurad Antigulov,Paul Craig,-125,118,f1,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Peter Sobotta,Alex Oliveira,Alex Oliveira,150,-156,f2,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Khamzat Chimaev,Rhys McKee,Khamzat Chimaev,-1111,900,f1,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Francisco Trinaldo,Jai Herbert,Francisco Trinaldo,-127,130,f1,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Nicolas Dalby,Jesse Ronson,Jesse Ronson,-233,225,f1,Underdog
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Jake Collier,Tom Aspinall,Tom Aspinall,206,-222,f2,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Mike Grundy,Movsar Evloev,Movsar Evloev,174,-179,f2,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Tanner Boser,Raphael Pessoa,Tanner Boser,-250,236,f1,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Bethe Correia,Pannie Kianzad,Pannie Kianzad,143,-145,f2,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Nathaniel Wood,John Castaneda,Nathaniel Wood,-417,362,f1,Favorite
+UFC Fight Island 3,Yas Island; 25th Jul 2020,Ramazan Emeev,Niklas Stolze,Ramazan Emeev,-385,348,f1,Favorite
+UFC Vegas 5,Las Vegas; 1st Aug 2020,Edmen Shahbazyan,Derek Brunson,Derek Brunson,-345,315,f1,Underdog
+UFC Vegas 5,Las Vegas; 1st Aug 2020,Jennifer Maia,Joanne Wood,Jennifer Maia,180,-189,f2,Underdog
+UFC Vegas 5,Las Vegas; 1st Aug 2020,Vicente Luque,Randy Brown,Vicente Luque,-185,180,f1,Favorite
+UFC Vegas 5,Las Vegas; 1st Aug 2020,Lando Vannata,Bobby Green,Bobby Green,-132,135,f1,Underdog
+UFC Vegas 5,Las Vegas; 1st Aug 2020,Jonathan Martinez,Frankie Saenz,Jonathan Martinez,-238,215,f1,Favorite
+UFC Vegas 5,Las Vegas; 1st Aug 2020,Johnny Munoz,Nathan Maness,Nathan Maness,100,-108,f2,Favorite
+UFC Vegas 5,Las Vegas; 1st Aug 2020,Jamall Emmers,Vince Cachero,Jamall Emmers,-455,415,f1,Favorite

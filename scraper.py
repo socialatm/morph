@@ -52,8 +52,8 @@ def scrape_data():
         all_links.append("https://www.betmma.tips/"+link.get('href'))
 
     # test for one use case
-    for link in all_links:
-    # for link in all_links[:5]:    # use for testing
+    # for link in all_links:
+    for link in all_links[:5]:    # use for testing
         print(f"Now scraping: {link}")
 
         data = requests.get(link)
@@ -79,8 +79,8 @@ def scrape_data():
             events.append(h1.text)
             location.append(h2.text)
 
-            odds_f1 = float(odds[2].text.strip(" @"))
-            odds_f2 = float(odds[3].text.strip(" @"))
+            odds_f1 = convert_decimal_to_american(float(odds[2].text.strip(" @")))
+            odds_f2 = convert_decimal_to_american(float(odds[3].text.strip(" @")))
 
             f1_odds.append(odds_f1)
             f2_odds.append(odds_f2)
@@ -128,5 +128,5 @@ scrape_data()
 df = create_df()
 
 # save df to a csv file named odds_data.csv
-df.to_csv('odds_data.csv', index=False)
-# df.to_csv('test.csv', index=False) # use for testing
+# df.to_csv('odds_data.csv', index=False)
+df.to_csv('test.csv', index=False) # use for testing
