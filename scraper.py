@@ -31,7 +31,7 @@ def scrape_data():
 
     # test for one use case
     for link in all_links:
-        print(f"Now currently scraping link: {link}")
+        print(f"Now scraping: {link}")
 
         data = requests.get(link)
         soup = BeautifulSoup(data.text, 'html.parser')
