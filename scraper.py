@@ -107,3 +107,4 @@ df = create_df()
 
 # save df to a csv file named odds_data.csv
 df.to_csv('odds_data.csv', index=False)
+# df.to_csv('test.csv', index=False) # use for testing
