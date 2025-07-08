@@ -13,7 +13,7 @@ winner = []
 f1_odds = []
 f2_odds = []
 label = []
-favourite = []
+favorite = []
 
 def scrape_data():
     # set up page to extract table
@@ -70,12 +70,12 @@ def scrape_data():
             if odds_dict["WON"] > odds_dict["LOST"]:
                 label.append("Underdog")
             else:
-                label.append("Favourite")
+                label.append("Favorite")
 
             if odds_f1 > odds_f2:
-                favourite.append("f2")
+                favorite.append("f2")
             else:
-                favourite.append("f1")
+                favorite.append("f1")
 
             fighters = row.find_all('a', attrs={'href': re.compile("^fighter_profile.php")})
             f1.append(fighters[0].text)
@@ -94,7 +94,7 @@ def create_df():
     df["Winner"] = winner
     df["fighter1_odds"] = f1_odds
     df["fighter2_odds"] = f2_odds
-    df["Favourite"] = favourite
+    df["Favorite"] = favorite
     df["Label"] = label
     print(f"Successfully scraped {df.shape[0]} fights and last fight card was {df.iloc[-1, :]['Events']} {df.iloc[-1, :]['Location']}")
     print(df["Label"].value_counts()/len(df))
