@@ -85,15 +85,15 @@ def scrape_data():
             f1_odds.append(odds_f1)
             f2_odds.append(odds_f2)
 
-            # how to generate label
+            # generate label
             odds_dict = {}
             odds_dict[odds[0].text] = odds_f1
             odds_dict[odds[1].text] = odds_f2 
 
             if odds_dict["WON"] > odds_dict["LOST"]:
-                label.append("Underdog")
+                label.append("underdog")
             else:
-                label.append("Favorite")
+                label.append("favorite")
 
             fighters = row.find_all('a', attrs={'href': re.compile("^fighter_profile.php")})
             f1.append(fighters[0].text)
@@ -118,9 +118,9 @@ def create_df():
     df["R_odds"] = f1_odds
     df["B_odds"] = f2_odds
     df["Favorite"] = favorite
-    df["Label"] = label
+    df["Who_won"] = label
     print(f"Successfully scraped {df.shape[0]} fights and last fight card was {df.iloc[-1, :]['Events']} {df.iloc[-1, :]['Location']}")
-    print(df["Label"].value_counts()/len(df))
+    print(df["Who_won"].value_counts()/len(df))
     
     return df
    
