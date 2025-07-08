@@ -73,73 +73,60 @@ def scrape_data():
             if odds[0].text not in ['WON', 'LOST']:
                 continue
 
+            # --- Extract all data for the row into temporary variables first ---
+
             # event name
             h1 = soup.find("h1")
-            events.append(h1.text)
+            event_name = h1.text
 
             # location and date
             h2 = soup.find("h2")
+            loc, dt = None, None
             if h2 and h2.text:
-                # The h2 text is usually in the format "Location; Date"
                 parts = h2.text.split(';', 1)
                 if len(parts) == 2:
-                    location.append(parts[0].strip())
+                    loc = parts[0].strip()
                     try:
-                        # Parse the date string and format it to YYYY-MM-DD
                         parsed_date = dateutil.parser.parse(parts[1].strip())
-                        date.append(parsed_date.strftime('%Y-%m-%d'))
+                        dt = parsed_date.strftime('%Y-%m-%d')
                     except (dateutil.parser.ParserError, TypeError):
-                        date.append(None) # Append None if date parsing fails
+                        dt = None
                 else:
-                    # If there's no ';', assume the whole text is the location
-                    location.append(parts[0].strip())
-                    date.append(None) # No date found
-            else:
-                location.append(None)
-                date.append(None)
+                    loc = parts[0].strip()
             
             # Convert and validate odds
             try:
                 dec_odds1 = float(odds[2].text.strip(" @"))
                 dec_odds2 = float(odds[3].text.strip(" @"))
             except ValueError:
-                # If odds text cannot be converted to a float, skip this row.
                 continue
 
-            # As per your request, skip if the decimal odds are infinite.
             if dec_odds1 == float('inf') or dec_odds2 == float('inf'):
                 continue
 
-            odds_f1 = convert_decimal_to_american(dec_odds1)
-            odds_f2 = convert_decimal_to_american(dec_odds2)
+            odds_f1_val = convert_decimal_to_american(dec_odds1)
+            odds_f2_val = convert_decimal_to_american(dec_odds2)
 
-            # Skip if odds are invalid (e.g., <= 1.0), which results in None. This prevents errors later.
-            if odds_f1 is None or odds_f2 is None:
+            if odds_f1_val is None or odds_f2_val is None:
                 continue
 
-            f1_odds.append(odds_f1)
-            f2_odds.append(odds_f2)
-
-            # generate label
-            odds_dict = {}
-            odds_dict[odds[0].text] = odds_f1
-            odds_dict[odds[1].text] = odds_f2 
-
-            if odds_dict["WON"] > odds_dict["LOST"]:
-                label.append("underdog")
-            else:
-                label.append("favorite")
+            # generate label, fighters, winner, and favorite
+            odds_dict = {odds[0].text: odds_f1_val, odds[1].text: odds_f2_val}
+            label_val = "underdog" if odds_dict["WON"] > odds_dict["LOST"] else "favorite"
 
             fighters = row.find_all('a', attrs={'href': re.compile("^fighter_profile.php")})
-            f1.append(fighters[0].text)
-            f2.append(fighters[1].text)
-            winner.append(fighters[2].text)
+            f1_val = fighters[0].text
+            f2_val = fighters[1].text
+            winner_val = fighters[2].text
+            favorite_val = f1_val if odds_f1_val < odds_f2_val else f2_val
 
-            # The fighter with the lower American odds value is the favorite
-            if odds_f1 < odds_f2:
-                favorite.append(fighters[0].text)
-            else:
-                favorite.append(fighters[1].text)
+            # --- If we've reached this point, the row is valid. Append all data at once. ---
+            events.append(event_name)
+            location.append(loc)
+            date.append(dt)
+            f1.append(f1_val); f2.append(f2_val); winner.append(winner_val)
+            f1_odds.append(odds_f1_val); f2_odds.append(odds_f2_val)
+            favorite.append(favorite_val); label.append(label_val)
     return None
 
 def create_df():
