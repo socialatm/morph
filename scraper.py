@@ -18,10 +18,8 @@ favorite = []
 def convert_decimal_to_american(decimal_odds: float) -> int:
     """
     Converts decimal (digital) odds to American odds.
-
     Args:
         decimal_odds: The decimal odds, which must be greater than 1.0.
-
     Returns:
         The equivalent American odds as an integer.
         Returns None if the input is invalid.
